@@ -26,10 +26,10 @@ This project centers on the establishment of a state-of-the-art Security Operati
 - SecurityIncident (Incidents created by Sentinel)
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
-## Architecture Before Hardening / Security Controls
+## Architecture Before Hardening Security Controls
 ![Architecture Diagram](https://imgur.com/OvrBFLs.jpg)
 
-## Architecture After Hardening / Security Controls
+## Architecture After Hardening Security Controls
 ![Architecture Diagram](https://imgur.com/48jqTjV.jpg)
 
 The architecture of the mini honeynet in Azure consists of the following components:
@@ -46,7 +46,7 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
-## Attack Maps Before Hardening / Security Controls
+## Attack Maps Before Hardening Security Controls
 ![Windows RDP/SMB Auth Failures](https://imgur.com/tNjMcHi.png)<br>
 
 ## Microsoft Sentinel Workspace After Hardening Security Controls
