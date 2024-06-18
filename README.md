@@ -1,12 +1,24 @@
 # Microsoft-Sentinel-IR
-Incident Detection and Response to HoneyPot Detection using NIST 800 SP-53 SC-7 (Boundary Protection) Compliance 
+Incident Detection and Response to HoneyPot Detection using NIST 800 SP-53 SC-7 (Boundary Protection) Compliance, This project focused on implementing incident detection and response strategies using a Honeypot to lure potential attackers. Compliance with NIST 800-53 SC-7 standards ensured robust boundary protection to safeguard organizational assets and data. 
 
-# Building a SOC + Honeynet in Azure (Live Traffic)
+# Orchestrating  a SOC + Honeynet in Azure with a live Attack Traffic Mapping
 ![Cloud Honeynet / SOC](https://imgur.com/CPWlFrz.jpg)
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+This project centers on the establishment of a state-of-the-art Security Operations Center (SOC) tailored to meet the demands of modern cloud security integration. 
+
+- 👉 Within this project, I orchestrated the development of a comprehensive SOC LAB, leveraging Microsoft Sentinel as the cornerstone of our Security Information and Event Management (SIEM) solution. 
+
+- 👉 Utilizing Log Analytics workspaces, I aggregate and analyze logs sourced from a diverse array of platforms including Windows VMs, Linux VMs, Azure Blob Storage, entreID, Activity logs, and MS SQL Database. Employing KQL for log querying.
+
+- 👉 My focus was centered on meticulous data collection, correlation, and in-depth analysis to bolster threat detection capabilities in the cloud. 
+
+- 👉 An integral aspect of this initiative involves the visualization of event locations on a global scale, providing actionable insights through geographical mapping. 
+
+- ⭕ And lastly, This project underscores the critical importance of SOC in the cloud era, where proactive monitoring and swift response are paramount for safeguarding digital assets against ever-evolving cyber threats.
+
+## The metrics we will show are:
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
@@ -15,10 +27,10 @@ In this project, I build a mini honeynet in Azure and ingest log sources from va
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Architecture Diagram](https://imgur.com/OvrBFLs.jpg)
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![Architecture Diagram](https://imgur.com/48jqTjV.jpg)
 
 The architecture of the mini honeynet in Azure consists of the following components:
 
@@ -35,45 +47,35 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+![Windows RDP/SMB Auth Failures](https://imgur.com/tNjMcHi.png)<br>
 
-## Metrics Before Hardening / Security Controls
+## Microsoft Sentinel Workspace After Hardening Security Controls
+![Windows RDP/SMB Auth Failures](https://imgur.com/K8JE1dc.png)<br>
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
+## Expertise
+- 🔰 Through the strategic deployment of a honeypot in the cloud, I successfully attracted and recorded a substantial influx of brute force attempts. Leveraging Sentinel's powerful geolocation mapping features, I was able to pinpoint adversary locations using three meticulously crafted workbook queries: Nsg-malicious-allowed-in, linux-ssh-auth-fail, and Windows-rdp-auth-fail.
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 19470
-| Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
-| AzureNetworkAnalytics_CL | 843
+- 🔰 I then developed 14 comprehensive analytic rules using Kusto Query Language (KQL). These rules were designed to trigger alerts on various suspicious activities, providing early warnings and facilitating prompt response to potential threats. Furthermore, I established detailed incident response playbooks tailored to address the specific incidents observed, including brute force attempts and malware detections. These playbooks ensured that our response was swift, coordinated, and effective.
 
-## Attack Maps Before Hardening / Security Controls
+- 🔰 Following the detection and response phase, I focused on fortifying the security posture thereby Implementing the NIST 800-53 SC-7 (Boundary Protection) standard, Then tightened the security of the resources and virtual machines. This included revising firewall rules and enhancing access controls to prevent unauthorized access and mitigate potential threats.
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+- 🔰 To validate the efficacy of the security measures, I monitored the environment for an additional 24 hours. During this period, and observed a complete absence of incidents, confirming a 100% compliance rate and demonstrating the robustness of the implemented security controls.
 
-## Metrics After Hardening / Security Controls
+## 🔵 Key Skills
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+- **✔Threat Detection and Analysis:** Proficient in using SIEM tools, such as Azure Sentinel, for monitoring and analyzing security events to identify potential threats.
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
-| SecurityAlert            | 0
-| SecurityIncident         | 0
-| AzureNetworkAnalytics_CL | 0
+- **✔Incident Response:** Experienced in developing and executing incident response playbooks to effectively manage and mitigate security incidents.
+
+- **✔Security Operations:** Skilled in the day-to-day operations of a SOC, including log analysis, intrusion detection, and vulnerability management.
+
+- **✔Network Security:** Knowledgeable in configuring and managing firewall rules, intrusion prevention systems, and other network security controls.
+
+- **✔Cloud Security:** Familiar with securing cloud environments, particularly Azure, and implementing security measures in line with industry standards such as NIST 800-53.
 
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+⭕ In conclusion, the successful execution of this project underscores the critical role of proactive threat detection and incident response in maintaining a secure operational environment. By leveraging Microsoft Sentinel's advanced capabilities, and significantly improving the ability to detect, respond to, and mitigate cybersecurity threats, thereby ensuring the ongoing protection of digital assets. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
 
 It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
 
