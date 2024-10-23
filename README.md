@@ -1,4 +1,4 @@
-# Microsoft-Sentinel-IR
+# Microsoft-Sentinel-Security-Operations (Incident-Response)
 Incident Detection and Response to HoneyPot Detection using NIST 800 SP-53 SC-7 (Boundary Protection) Compliance, This project focused on implementing incident detection and response strategies using a Honeypot to lure potential attackers. Compliance with NIST 800-53 SC-7 standards ensured robust boundary protection to safeguard organizational assets and data. 
 
 # Orchestrating  a SOC + Honeynet in Azure with a live Attack Traffic Mapping
